@@ -9,7 +9,7 @@ PreferredSizeWidget? commonAppbar(Widget title, BuildContext context,
     bool isLangVisible, bool isCloseVisible) {
   return AppBar(
     centerTitle: true,
-    leadingWidth: 120,
+    leadingWidth: 180.w,
     title: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,7 +35,10 @@ PreferredSizeWidget? commonAppbar(Widget title, BuildContext context,
       ],
     ),
     leading: Center(
-        child: Text("(주)에이드", style: CustomTextStyle.bold_20_purple, textAlign: TextAlign.center)),
+        child: Padding(
+          padding: EdgeInsets.only(left: 16.w),
+          child: Text("(주)에이드", style: CustomTextStyle.bold_20_purple, textAlign: TextAlign.center),
+        )),
     actions: [
       GestureDetector(
         onTap: () {

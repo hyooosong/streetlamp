@@ -77,8 +77,8 @@ Widget cityList(List<City> entries, bool isVisibleText) {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: 200.w,
-                      height: 100.h,
+                      width: 190.w,
+                      height: 102.h,
                       decoration: BoxDecoration(
                           color: CustomColors.PURPLE,
                           borderRadius: BorderRadius.circular(8.r)

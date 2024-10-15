@@ -17,7 +17,7 @@ class _StreetLampsState extends State<StreetLamps> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: commonAppbar(
-            Text('82-62-CLT02', style: CustomTextStyle.bold_32_black), // Appbar Title
+            Text('82-62-CLT04', style: CustomTextStyle.bold_32_black), // Appbar Title
             context,
             false, // Appbar 번역 버튼 gone
             true), // Appbar 닫기 버튼 gone

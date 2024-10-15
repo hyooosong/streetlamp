@@ -15,7 +15,7 @@ Future<void> main() async {
     DeviceOrientation.landscapeRight,
   ]);
 
-  // easylocalization 초기화
+  // easy-localization 초기화
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 
@@ -27,7 +27,7 @@ Future<void> main() async {
       // fallbackLocale supportedLocales에 설정한 언어가 없는 경우 설정되는 언어
       fallbackLocale: const Locale('en', 'US'),
       // 초기 언어 지정, 해당 설정 없다면 OS 언어를 따라 기본 설정
-      // startLocale: const Locale('en', 'US'),
+      startLocale: const Locale('en', 'US'),
       child: MyApp()));
 }
 
