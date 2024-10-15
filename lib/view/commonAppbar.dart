@@ -26,9 +26,9 @@ PreferredSizeWidget? commonAppbar(Widget title, BuildContext context,
                   // 언어 변경 로직
                     onTap: () {
                       if(context.locale.languageCode == "en") {
-                        context.setLocale(Locale('ko', 'KR'));
+                        context.setLocale(const Locale('ko', 'KR'));
                       } else {
-                        context.setLocale(Locale('en', 'US'));
+                        context.setLocale(const Locale('en', 'US'));
                       }
                     },
                     child: Image.asset("images/language.png", width: 100.w, height: 36.h)))
