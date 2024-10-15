@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:streetlamp/data/CityListData.dart';
 import 'package:streetlamp/styles/CustomColors.dart';
 
+import '../data/City.dart';
 import '../styles/CustomTextStyles.dart';
-import 'CommonAppbar.dart';
+import 'commonAppbar.dart';
 
 class DashboardKorea extends StatefulWidget {
   const DashboardKorea({super.key});
@@ -32,19 +33,18 @@ class _DashboardKoreaState extends State<DashboardKorea> {
             true // Appbar 닫기 버튼 gone
             ),
         body: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            cityList(),
+            cityList(CityListData().leftCityList),
             Image.asset("images/korea_map.png", width: 700.w, height: 540.h),
-            Column(
-              children: [],
-            ),
+            cityList(CityListData().rightCityList)
           ],
         ));
   }
 }
 
-Widget cityList() {
-  final entries = CityListData().leftCityList;
+Widget cityList(List<City> entries) {
   return ListView.builder(
     padding: const EdgeInsets.all(8),
     itemCount: entries.length,

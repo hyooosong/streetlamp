@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:streetlamp/styles/CustomTextStyles.dart';
 
-import 'CommonAppbar.dart';
+import 'commonAppbar.dart';
 import 'dashboardKorea.dart';
 
 class Dashboard extends StatefulWidget {
