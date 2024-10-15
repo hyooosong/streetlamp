@@ -43,7 +43,7 @@ class _DashboardState extends State<Dashboard> {
             onTap: () {
               /** 지도 클릭하면, 2번째 페이지로 이동 **/
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => DashboardKorea()));
+                  MaterialPageRoute(builder: (context) => const DashboardKorea()));
             },
           )),
     );
