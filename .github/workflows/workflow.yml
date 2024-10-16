@@ -16,10 +16,11 @@ jobs:
           version: 3.7.0
       - run: flutter config --enable-web
       - run: flutter pub get
+      - run: echo ${{ github.workspace }}
       - run: flutter build web --release
-        working-directory: ./Users/song/AndroidStudioProjects/streetlamp
+        working-directory: ./lib.main
       - run: |
-          cd ./Users/song/AndroidStudioProjects/streetlamp/build/web
+          cd ./build/web
           git init
           git config --global user.email gythd1998@gmail.com
           git config --global user.name hyooosong
