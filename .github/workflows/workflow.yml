@@ -23,10 +23,5 @@ jobs:
         working-directory: /home/runner/work/streetlamp/streetlamp
       - run: |
           cd /home/runner/work/streetlamp/streetlamp/build/web
-          git init
-          git status
-          git remote add origin https://github.com/hyooosong/streetlamp.git
           git checkout -b gh-pages
-          git add .
-          git commit -m "update"
           git push origin gh-pages -f
