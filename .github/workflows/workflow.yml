@@ -18,9 +18,8 @@ jobs:
           version: 3.7.0
       - run: flutter config --enable-web
       - run: flutter pub get
-      - run: echo ${{ github.workspace }}
       - run: flutter build web --release
-        working-directory: /home/runner/work/streetlamp/streetlamp/lib/main.dart
+        working-directory: /home/runner/work/streetlamp/streetlamp
       - run: |
           cd /home/runner/work/streetlamp/streetlamp/build/web
           git checkout -b gh-pages
