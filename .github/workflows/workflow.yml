@@ -1,30 +1,26 @@
-name: deploy flutter web to github pages
-
-# 1
+name: Flutter Web
 on:
   push:
     branches:
       - master
-
+permissions:
+  contents: write
 jobs:
-  deploy:
+  build:
+    name: Build Web
+    env:
+      my_secret: $
     runs-on: ubuntu-latest
     steps:
-      # 1
-      # https://github.com/marketplace/actions/checkout
-      - uses: actions/checkout@v4
-      - uses: subosito/flutter-action@v2
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
         with:
           version: 3.7.0
-
-      # 3
-      - name: Build web
-        run: flutter build web --base-href "/streetlamp/"
-
-      # 4
-      # https://github.com/marketplace/actions/github-pages-action
-      - name: Deploy to github pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.STATIC_DEPLOY_KEY }}
-          publish_dir: ./build/web
+      - run: flutter config --enable-web
+      - run: flutter pub get
+      - run: flutter build web --release --base-href "/streetlamp/"
+        working-directory: /home/runner/work/streetlamp/streetlamp
+      - run: |
+          cd /home/runner/work/streetlamp/streetlamp/build/web
+          git checkout -b gh-pages
+          git push origin gh-pages -f
