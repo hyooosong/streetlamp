@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       // 화면 해상도: 1280*720 기준
-      designSize: const Size(1280, 720),
+      designSize: const Size(1280, 700),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
