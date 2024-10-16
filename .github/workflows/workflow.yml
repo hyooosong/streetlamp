@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master
+permissions:
+  contents: write
 jobs:
   build:
     name: Build Web
@@ -22,8 +24,6 @@ jobs:
       - run: |
           cd /home/runner/work/streetlamp/streetlamp/build/web
           git init
-          git config --global user.email gythd1998@gmail.com
-          git config --global user.name hyooosong
           git status
           git remote add origin https://github.com/hyooosong/streetlamp.git
           git checkout -b gh-pages
