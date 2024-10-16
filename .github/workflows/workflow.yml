@@ -1,36 +1,32 @@
-name: deploy flutter web to github pages
-
-# 1
+name: Flutter Web
 on:
   push:
     branches:
       - master
-
 jobs:
-  deploy:
+  build:
+    name: Build Web
+    env:
+      my_secret: $
     runs-on: ubuntu-latest
     steps:
-      # 1
-      # https://github.com/marketplace/actions/checkout
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      # 2
-      # https://github.com/marketplace/actions/flutter-action
-      - name: Setup flutter
-        uses: subosito/flutter-action@v2
+      - uses: actions/checkout@v1
+      - uses: subosito/flutter-action@v1
         with:
-          channel: stable
-          flutter-version: 3.19.0
-
-      # 3
-      - name: Build web
-        run: flutter build web --base-href "/${/Users/song/AndroidStudioProjects/streetlamp}/"
-
-      # 4
-      # https://github.com/marketplace/actions/github-pages-action
-      - name: Deploy to github pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${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}
-          publish_dir: ./build/web
+          channel: 'dev'
+      - run: flutter config --enable-web
+      - run: flutter pub get
+      - run: flutter build web --release
+        # 1. change path which exist lib/main.dart
+        working-directory: ./Users/song/AndroidStudioProjects/streetlamp
+      - run: |
+          cd ./Users/song/AndroidStudioProjects/streetlamp/build/web
+          git init
+          git config --global user.email gythd1998@gmail.com
+          git config --global user.name hyooosong
+          git status
+          git remote add origin https://github.com/hyooosong/streetlamp.git
+          git checkout -b gh-pages
+          git add --all
+          git commit -m "update"
+          git push origin gh-pages -f
