@@ -20,7 +20,7 @@ jobs:
       - run: flutter pub get
       - run: echo ${{ github.workspace }}
       - run: flutter build web --release
-        working-directory: /home/runner/work/streetlamp/streetlamp
+        working-directory: /home/runner/work/streetlamp/streetlamp/lib/main.dart
       - run: |
           cd /home/runner/work/streetlamp/streetlamp/build/web
           git checkout -b gh-pages
