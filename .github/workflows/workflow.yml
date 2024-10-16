@@ -12,13 +12,8 @@ jobs:
     steps:
       # 1
       # https://github.com/marketplace/actions/checkout
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      # 2
-      # https://github.com/marketplace/actions/flutter-action
-      - name: Setup flutter
-        uses: subosito/flutter-action@v2
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
         with:
           version: 3.7.0
 
