@@ -22,7 +22,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          git config --global user.name hyooosong
+          git config --global user.name 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
           git config --global user.email gythd1998@gmail.com
           git clone --branch gh-pages https://github.com/hyooosong/streetlamp.git gh-pages
           rm -rf gh-pages/*
