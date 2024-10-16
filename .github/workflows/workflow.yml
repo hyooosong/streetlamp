@@ -18,9 +18,9 @@ jobs:
       - run: flutter pub get
       - run: echo ${{ github.workspace }}
       - run: flutter build web --release
-        working-directory: ./lib.main
+        working-directory: /home/runner/work/streetlamp/streetlamp
       - run: |
-          cd ./build/web
+          cd /home/runner/work/streetlamp/streetlamp/build/web
           git init
           git config --global user.email gythd1998@gmail.com
           git config --global user.name hyooosong
