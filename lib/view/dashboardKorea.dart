@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:streetlamp/data/CityListData.dart';
+import 'package:streetlamp/data/DummyData.dart';
 import 'package:streetlamp/styles/CustomColors.dart';
 import 'package:streetlamp/view/clusters.dart';
 import 'dart:io';
@@ -42,12 +42,12 @@ class _DashboardKoreaState extends State<DashboardKorea> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(child: cityList(CityListData().leftCityList, true)),
+                Center(child: cityList(Dummydata().leftCityList, true)),
                 Padding(
                   padding: EdgeInsets.fromLTRB(0.w, 38.h, 0.w, 32.h),
                   child: Image.asset("images/korea_map.png", width: 700.w, height: 540.h),
                 ),
-                cityList(CityListData().rightCityList, false)
+                cityList(Dummydata().rightCityList, false)
               ],
             ),
           ));
