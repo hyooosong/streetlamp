@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:streetlamp/styles/CustomTextStyles.dart';
@@ -36,7 +37,7 @@ class _DashboardState extends State<Dashboard> {
           false // Appbar 닫기 버튼 gone
       ),
       body: Container(
-          padding: EdgeInsets.fromLTRB(32.w, 38.h, 32.w, 52.h),
+          padding: kIsWeb ? EdgeInsets.fromLTRB(32.w, 38.h, 32.w, 52.h) : EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 32.h),
           child: GestureDetector(
             child: Image.asset("images/dashboard_map.png",
                 width: 1216.w, height: 540.h),

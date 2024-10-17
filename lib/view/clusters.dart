@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:streetlamp/styles/CustomColors.dart';
@@ -51,7 +52,7 @@ class _ClustersState extends State<Clusters>
             true), // Appbar 닫기 버튼 gone
         body: Stack(children: [
           Container(
-              padding: EdgeInsets.fromLTRB(32.w, 38.h, 32.w, 52.h),
+              padding: kIsWeb ? EdgeInsets.fromLTRB(32.w, 38.h, 32.w, 52.h) : EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 32.h),
               child: Image.asset("images/clusters_map.png",
                   width: 1216.w, height: 540.h)),
           Positioned(
@@ -75,7 +76,7 @@ class _ClustersState extends State<Clusters>
               left: 570.w,
               child: animatedClusters("images/ic_clusters_5.png", 90)),
           Positioned(
-              top: 270.h,
+              top: 170.h,
               right: 420.w,
               child: animatedClusters("images/ic_clusters_6.png", 100)),
           Positioned(
@@ -88,7 +89,7 @@ class _ClustersState extends State<Clusters>
   Widget animatedClusters(String imagePath, int size) {
     return GestureDetector(
       onTap: () {
-        /** 지도 클릭하면, 4번째 페이지(가로등) 로 이동 **/
+        /** 클러스터 클릭하면, 4번째 페이지(가로등) 로 이동 **/
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => StreetLamps()));
       },

@@ -1,16 +1,19 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:streetlamp/data/CityListData.dart';
 import 'package:streetlamp/styles/CustomColors.dart';
 import 'package:streetlamp/view/clusters.dart';
+import 'dart:io';
 
 import '../data/City.dart';
 import '../styles/CustomTextStyles.dart';
 import 'commonAppbar.dart';
 
 class DashboardKorea extends StatefulWidget {
-  const DashboardKorea({super.key});
+  const  DashboardKorea({super.key});
 
   @override
   State<DashboardKorea> createState() => _DashboardKoreaState();
@@ -40,7 +43,10 @@ class _DashboardKoreaState extends State<DashboardKorea> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Center(child: cityList(CityListData().leftCityList, true)),
-                Image.asset("images/korea_map.png", width: 700.w, height: 540.h),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0.w, 38.h, 0.w, 32.h),
+                  child: Image.asset("images/korea_map.png", width: 700.w, height: 540.h),
+                ),
                 cityList(CityListData().rightCityList, false)
               ],
             ),
@@ -59,7 +65,7 @@ Widget cityList(List<City> entries, bool isVisibleText) {
         Visibility(
             visible: isVisibleText,
             child: Text("install_count", style: CustomTextStyle.medium_14_purple).tr()),
-        SizedBox(height: 8.h),
+        SizedBox(height: kIsWeb ? 8.h : 4.h),
         Center(
           child: ListView.builder(
             shrinkWrap: true,
@@ -77,8 +83,8 @@ Widget cityList(List<City> entries, bool isVisibleText) {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: 190.w,
-                      height: 102.h,
+                      width: kIsWeb ? 190.w : 180.w,
+                      height: kIsWeb ? 102.h : 90.w,
                       decoration: BoxDecoration(
                           color: CustomColors.PURPLE,
                           borderRadius: BorderRadius.circular(8.r)
@@ -87,25 +93,25 @@ Widget cityList(List<City> entries, bool isVisibleText) {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SizedBox(height: 12.h),
+                            SizedBox(height: kIsWeb ? 12.h : 6.h),
                             Text(entries[index].cityName,
-                                style: CustomTextStyle.semibold_20_white),
-                            SizedBox(height: 8.h),
+                                style: kIsWeb ? CustomTextStyle.semibold_20_white : CustomTextStyle.semibold_16_white),
+                            SizedBox(height: kIsWeb ? 8.h : 4.h),
                             Container(
-                              width: 153.w,
-                              height: 44.h,
+                              width: kIsWeb ? 153.w : 143.w,
+                              height: kIsWeb ? 44.h : 24.h,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 color: CustomColors.LIGHT_PURPLE,
                                 borderRadius: BorderRadius.circular(8.r)
                               ),
                               child: Text(entries[index].count,
-                                  style: CustomTextStyle.semibold_20_black),
+                                  style: kIsWeb ? CustomTextStyle.semibold_20_black: CustomTextStyle.semibold_16_black),
                             ),
-                            SizedBox(height: 8.h)
+                            SizedBox(height: kIsWeb ? 8.h : 4.h)
                           ]),
                     ),
-                    SizedBox(height: 16.h)
+                    SizedBox(height: kIsWeb ? 16.h : 8.h)
                   ],
                 ),
               );
