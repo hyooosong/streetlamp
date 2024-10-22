@@ -27,7 +27,7 @@ class _ClustersState extends State<Clusters>
       vsync: this,
     )..repeat(reverse: true); // 반복 애니메이션 설정
 
-    _animation = Tween<double>(begin: 0.7, end: 1.0).animate(
+    _animation = Tween<double>(begin: 0.6, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
         curve: Curves.easeInOut,
@@ -45,16 +45,18 @@ class _ClustersState extends State<Clusters>
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: commonAppbar(
-            Text('82-62-Clusters', style: CustomTextStyle.bold_32_black),
+            Text('82-62-ECO Intelli clusters', style: CustomTextStyle.bold_32_black),
             // Appbar Title
             context,
             false, // Appbar 번역 버튼 gone
             true), // Appbar 닫기 버튼 gone
         body: Stack(children: [
           Container(
-              padding: kIsWeb ? EdgeInsets.fromLTRB(32.w, 38.h, 32.w, 52.h) : EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 32.h),
+              padding: kIsWeb ? EdgeInsets.fromLTRB(64.w, 38.h, 64.w, 52.h) : EdgeInsets.fromLTRB(32.w, 20.h, 32.w, 32.h),
+              child: ClipRRect(
+              borderRadius: BorderRadius.circular(12.r),
               child: Image.asset("images/clusters_map.png",
-                  width: 1216.w, height: 540.h)),
+                  width: double.infinity, height: double.infinity, fit: BoxFit.fitWidth))),
           Positioned(
               top: 180.h,
               left: 140.w,
@@ -64,24 +66,24 @@ class _ClustersState extends State<Clusters>
               left: 200.w,
               child: animatedClusters("images/ic_clusters_2.png", 100)),
           Positioned(
-              bottom: 200.h,
-              left: 500.w,
+              bottom: 220.h,
+              left: 550.w,
               child: animatedClusters("images/ic_clusters_3.png", 82)),
           Positioned(
               top: 100.h,
-              right: 150.w,
+              left: 330.w,
               child: animatedClusters("images/ic_clusters_4.png", 82)),
           Positioned(
-              top: 120.h,
-              left: 570.w,
+              bottom: 120.h,
+              left: 760.w,
               child: animatedClusters("images/ic_clusters_5.png", 90)),
           Positioned(
-              top: 170.h,
-              right: 420.w,
+              bottom: 170.h,
+              right: 520.w,
               child: animatedClusters("images/ic_clusters_6.png", 100)),
           Positioned(
               top: 350.h,
-              right: 140.w,
+              right: 640.w,
               child: animatedClusters("images/ic_clusters_7.png", 100))
         ]));
   }
@@ -105,7 +107,7 @@ class _ClustersState extends State<Clusters>
                 color: Colors.transparent,
                 boxShadow: [
                   BoxShadow(
-                    color: CustomColors.RED.withOpacity(0.6 * _animation.value),
+                    color: CustomColors.RED.withOpacity(0.5 * _animation.value),
                     // 투명도 조절
                     blurRadius: (size/10) * 3,
                     // 블러 반경

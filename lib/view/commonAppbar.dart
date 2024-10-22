@@ -10,29 +10,32 @@ PreferredSizeWidget? commonAppbar(Widget title, BuildContext context,
   return AppBar(
     centerTitle: true,
     leadingWidth: 180.w,
-    title: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        title,
-        SizedBox(width: 12.w),
-        Visibility(
-            visible: isLangVisible,
-            maintainSize: true,
-            maintainAnimation: true,
-            maintainState: true,
-            child:
-                GestureDetector(
-                  // 언어 변경 로직
-                    onTap: () {
-                      if(context.locale.languageCode == "en") {
-                        context.setLocale(const Locale('ko', 'KR'));
-                      } else {
-                        context.setLocale(const Locale('en', 'US'));
-                      }
-                    },
-                    child: Image.asset("images/language.png", width: 100.w, height: 36.h)))
-      ],
+    title: Padding(
+      padding: EdgeInsets.only(top: 8.h),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          title,
+          SizedBox(width: 12.w),
+          Visibility(
+              visible: isLangVisible,
+              maintainSize: true,
+              maintainAnimation: true,
+              maintainState: true,
+              child:
+                  GestureDetector(
+                    // 언어 변경 로직
+                      onTap: () {
+                        if(context.locale.languageCode == "en") {
+                          context.setLocale(const Locale('ko', 'KR'));
+                        } else {
+                          context.setLocale(const Locale('en', 'US'));
+                        }
+                      },
+                      child: Image.asset("images/language.png", width: 100.w, height: 36.h)))
+        ],
+      ),
     ),
     leading: Center(
         child: Padding(

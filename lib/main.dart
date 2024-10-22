@@ -37,9 +37,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return ScreenUtilInit(
-      // 화면 해상도: 1280*720 기준
-      designSize: const Size(1280, 700),
+      // 화면 해상도
+      designSize: Size(width, height),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
