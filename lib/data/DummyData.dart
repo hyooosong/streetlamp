@@ -42,7 +42,7 @@ class Dummydata {
   ];
 
   final List<ValueData> performanceList = [
-    ValueData(key: 'last_month_charge'.tr(), value: '1,09 kWh'),
+    ValueData(key: 'last_month_charge'.tr(), value: '1,098 kWh'),
     ValueData(key: 'this_month_charge'.tr(), value: '1,217 kWh'),
     ValueData(key: 'this_year_charge'.tr(), value: '13,122 kWh'),
     ValueData(key: 'total_charge'.tr(), value: '244,412 kWh'),

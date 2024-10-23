@@ -29,9 +29,9 @@ class _DashboardKoreaState extends State<DashboardKorea> {
         appBar: commonAppbar(
             Text.rich(TextSpan(children: [
               TextSpan(
-                  text: 'ECO Sphere ', style: CustomTextStyle.bold(height: height, rate: 0.5, color: CustomColors.BLACK)),
-              TextSpan(text: "VPP ", style: CustomTextStyle.bold(height: height, rate: 0.5, color: CustomColors.PURPLE)),
-              TextSpan(text: 'Navigator', style: CustomTextStyle.bold(height: height, rate: 0.5, color: CustomColors.BLACK)),
+                  text: 'ECO Sphere ', style: CustomTextStyle.bold(height: height, rate: 0.45, color: CustomColors.BLACK)),
+              TextSpan(text: "VPP ", style: CustomTextStyle.bold(height: height, rate: 0.45, color: CustomColors.PURPLE)),
+              TextSpan(text: 'Navigator', style: CustomTextStyle.bold(height: height, rate: 0.45, color: CustomColors.BLACK)),
             ])), // Appbar Title
             context,
             true, // Appbar 번역 버튼 gone
@@ -42,7 +42,7 @@ class _DashboardKoreaState extends State<DashboardKorea> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Center(child: cityList(width, height, Dummydata().leftCityList, true)),
+              cityList(width, height, Dummydata().leftCityList, true),
               Container(
                 padding: EdgeInsets.symmetric(vertical: height*0.07),
                   child: ClipRRect(
@@ -59,8 +59,8 @@ class _DashboardKoreaState extends State<DashboardKorea> {
 
 Widget cityList(double width, double height, List<City> entries, bool isVisibleText) {
   return SizedBox(
-    width: width * 0.25,
-    height: 600.h,
+    width: width * 0.23,
+    height: height * 0.9,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -68,7 +68,7 @@ Widget cityList(double width, double height, List<City> entries, bool isVisibleT
         Visibility(
             visible: isVisibleText,
             child:
-                Text("install_count", style: CustomTextStyle.medium(height: height, rate: 0.3, color: CustomColors.PURPLE))
+                Text("install_count", style: CustomTextStyle.medium(height: height, rate: 0.25, color: CustomColors.PURPLE))
             .tr()),
         SizedBox(height: kIsWeb ? 8.h : 4.h),
         Center(

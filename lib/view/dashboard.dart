@@ -24,9 +24,9 @@ class _DashboardState extends State<Dashboard> {
           Text.rich(
             TextSpan(
               children: [
-                TextSpan(text: 'ECO Sphere ', style: CustomTextStyle.bold(height: height, rate: 0.5, color: CustomColors.BLACK)),
-                TextSpan(text: "VPP ", style: CustomTextStyle.bold(height: height, rate: 0.5, color: CustomColors.PURPLE)),
-                TextSpan(text: 'Navigator', style: CustomTextStyle.bold(height: height, rate: 0.5, color: CustomColors.BLACK)),
+                TextSpan(text: 'ECO Sphere ', style: CustomTextStyle.bold(height: height, rate: 0.45, color: CustomColors.BLACK)),
+                TextSpan(text: "VPP ", style: CustomTextStyle.bold(height: height, rate: 0.45, color: CustomColors.PURPLE)),
+                TextSpan(text: 'Navigator', style: CustomTextStyle.bold(height: height, rate: 0.45, color: CustomColors.BLACK)),
               ],
             ),
           ), // Appbar Title

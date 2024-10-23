@@ -49,7 +49,7 @@ class _StreetLampsState extends State<StreetLamps>
 
     return Scaffold(
         appBar: commonAppbar(
-            Text('82-62-CLT01-ECO Intelli nodes', style: CustomTextStyle.bold(height: height, rate: 0.5, color: CustomColors.BLACK)),
+            Text('82-62-CLT01-ECO Intelli nodes', style: CustomTextStyle.bold(height: height, rate: 0.45, color: CustomColors.BLACK)),
             context,
             false, // Appbar 번역 버튼 gone
             true), // Appbar 닫기 버튼 gone

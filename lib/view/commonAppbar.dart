@@ -44,7 +44,7 @@ PreferredSizeWidget? commonAppbar(Widget title, BuildContext context,
         child: Padding(
           padding: EdgeInsets.only(left: 16.w),
           child: Text("(주)에이드",
-              style: CustomTextStyle.bold(height: height, rate: 0.4, color: CustomColors.PURPLE),
+              style: CustomTextStyle.bold(height: height, rate: 0.3, color: CustomColors.PURPLE),
               textAlign: TextAlign.center),
         )),
     actions: [

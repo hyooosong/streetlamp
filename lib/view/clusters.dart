@@ -48,7 +48,7 @@ class _ClustersState extends State<Clusters>
 
     return Scaffold(
         appBar: commonAppbar(
-            Text('82-62-ECO Intelli clusters', style: CustomTextStyle.bold(height: height, rate: 0.5, color: CustomColors.BLACK)),
+            Text('82-62-ECO Intelli clusters', style: CustomTextStyle.bold(height: height, rate: 0.45, color: CustomColors.BLACK)),
             // Appbar Title
             context,
             false, // Appbar 번역 버튼 gone
@@ -73,11 +73,11 @@ class _ClustersState extends State<Clusters>
               left: width*0.55,
               child: animatedClusters("images/ic_clusters_3.png", height * 0.18)),
           Positioned(
-              top: height*0.3,
+              top: height*0.35,
               left: width*0.45,
               child: animatedClusters("images/ic_clusters_4.png", height * 0.15)),
           Positioned(
-              top: height*0.45,
+              top: height*0.5,
               left: width*0.12,
               child: animatedClusters("images/ic_clusters_5.png", height * 0.15)),
           Positioned(
@@ -85,7 +85,7 @@ class _ClustersState extends State<Clusters>
               left: width*0.3,
               child: animatedClusters("images/ic_clusters_6.png", height * 0.13)),
           Positioned(
-              top: height*0.4,
+              top: height*0.5,
               left: width*0.57,
               child: animatedClusters("images/ic_clusters_7.png", height * 0.12))
         ]));
