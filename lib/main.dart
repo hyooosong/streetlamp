@@ -39,6 +39,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    print("width: $width");
+    print("height: $height");
     return ScreenUtilInit(
       // 화면 해상도
       designSize: Size(width, height),

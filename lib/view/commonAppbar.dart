@@ -2,11 +2,14 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:streetlamp/styles/CustomColors.dart';
 
 import '../styles/CustomTextStyles.dart';
 
 PreferredSizeWidget? commonAppbar(Widget title, BuildContext context,
     bool isLangVisible, bool isCloseVisible) {
+  double height = MediaQuery.of(context).size.height;
+
   return AppBar(
     centerTitle: true,
     leadingWidth: 180.w,
@@ -40,7 +43,9 @@ PreferredSizeWidget? commonAppbar(Widget title, BuildContext context,
     leading: Center(
         child: Padding(
           padding: EdgeInsets.only(left: 16.w),
-          child: Text("(주)에이드", style: CustomTextStyle.bold_20_purple, textAlign: TextAlign.center),
+          child: Text("(주)에이드",
+              style: CustomTextStyle.bold(height: height, rate: 0.4, color: CustomColors.PURPLE),
+              textAlign: TextAlign.center),
         )),
     actions: [
       GestureDetector(
@@ -53,7 +58,7 @@ PreferredSizeWidget? commonAppbar(Widget title, BuildContext context,
               child: Padding(
                 padding: EdgeInsets.only(right: 32.w),
                 child: SvgPicture.asset("images/ic_close.svg",
-                    width: 40.w, height: 40.h, alignment: Alignment.center),
+                    width: height * 0.07, height: height * 0.07, alignment: Alignment.center),
               ),
             )),
       )

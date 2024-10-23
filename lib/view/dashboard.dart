@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:streetlamp/styles/CustomTextStyles.dart';
 
+import '../styles/CustomColors.dart';
 import 'commonAppbar.dart';
 import 'dashboardKorea.dart';
 
@@ -16,14 +17,16 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: commonAppbar(
           Text.rich(
             TextSpan(
               children: [
-                TextSpan(text: 'ECO Sphere ', style: CustomTextStyle.bold_32_black),
-                TextSpan(text: "VPP ", style: CustomTextStyle.bold_32_purple),
-                TextSpan(text: 'Navigator', style: CustomTextStyle.bold_32_black),
+                TextSpan(text: 'ECO Sphere ', style: CustomTextStyle.bold(height: height, rate: 0.5, color: CustomColors.BLACK)),
+                TextSpan(text: "VPP ", style: CustomTextStyle.bold(height: height, rate: 0.5, color: CustomColors.PURPLE)),
+                TextSpan(text: 'Navigator', style: CustomTextStyle.bold(height: height, rate: 0.5, color: CustomColors.BLACK)),
               ],
             ),
           ), // Appbar Title

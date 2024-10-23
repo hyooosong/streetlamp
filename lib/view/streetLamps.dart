@@ -44,9 +44,12 @@ class _StreetLampsState extends State<StreetLamps>
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
         appBar: commonAppbar(
-            Text('82-62-CLT01-ECO Intelli nodes', style: CustomTextStyle.bold_32_black), // Appbar Title
+            Text('82-62-CLT01-ECO Intelli nodes', style: CustomTextStyle.bold(height: height, rate: 0.5, color: CustomColors.BLACK)),
             context,
             false, // Appbar 번역 버튼 gone
             true), // Appbar 닫기 버튼 gone
@@ -58,37 +61,37 @@ class _StreetLampsState extends State<StreetLamps>
                   child: Image.asset("images/streetLamps_map.png",
                       width: double.infinity, height: double.infinity, fit: BoxFit.fitWidth))),
           Positioned(
-              top: 180.h,
-              left: 170.w,
-              child: animatedClusters("images/ic_streetlamp.png", 100)),
+              top: height*0.05,
+              left: width*0.3,
+              child: animatedClusters("images/ic_streetlamp.png", height * 0.15)),
           Positioned(
-              bottom: 130.h,
-              left: 200.w,
-              child: animatedClusters("images/ic_streetlamp.png", 100)),
+              top: height*0.1,
+              left: width*0.08,
+              child: animatedClusters("images/ic_streetlamp.png", height * 0.11)),
           Positioned(
-              bottom: 180.h,
-              left: 500.w,
-              child: animatedClusters("images/ic_streetlamp.png", 100)),
+              top: height*0.2,
+              left: width*0.55,
+              child: animatedClusters("images/ic_streetlamp.png", height * 0.12)),
           Positioned(
-              top: 100.h,
-              left: 330.w,
-              child: animatedClusters("images/ic_streetlamp.png", 100)),
+              top: height*0.3,
+              left: width*0.45,
+              child: animatedClusters("images/ic_streetlamp.png", height * 0.18)),
           Positioned(
-              bottom: 120.h,
-              left: 740.w,
-              child: animatedClusters("images/ic_streetlamp.png", 100)),
+              top: height*0.45,
+              left: width*0.12,
+              child: animatedClusters("images/ic_streetlamp.png", height * 0.18)),
           Positioned(
-              bottom: 170.h,
-              right: 600.w,
-              child: animatedClusters("images/ic_streetlamp.png", 100)),
+              top: height*0.4,
+              left: width*0.35,
+              child: animatedClusters("images/ic_streetlamp.png", height * 0.12)),
           Positioned(
-              top: 350.h,
-              right: 640.w,
-              child: animatedClusters("images/ic_streetlamp.png", 100))
+              top: height*0.4,
+              left: width*0.57,
+              child: animatedClusters("images/ic_streetlamp.png", height * 0.15))
         ]));
   }
 
-  Widget animatedClusters(String imagePath, int size) {
+  Widget animatedClusters(String imagePath, double size) {
     return GestureDetector(
       onTap: () {
         /** 가로등 클릭하면, 5번째 페이지(상세 화면) 로 이동 **/

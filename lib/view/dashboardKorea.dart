@@ -22,13 +22,16 @@ class DashboardKorea extends StatefulWidget {
 class _DashboardKoreaState extends State<DashboardKorea> {
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
         appBar: commonAppbar(
             Text.rich(TextSpan(children: [
               TextSpan(
-                  text: 'ECO Sphere ', style: CustomTextStyle.bold_32_black),
-              TextSpan(text: "VPP ", style: CustomTextStyle.bold_32_purple),
-              TextSpan(text: 'Navigator', style: CustomTextStyle.bold_32_black),
+                  text: 'ECO Sphere ', style: CustomTextStyle.bold(height: height, rate: 0.5, color: CustomColors.BLACK)),
+              TextSpan(text: "VPP ", style: CustomTextStyle.bold(height: height, rate: 0.5, color: CustomColors.PURPLE)),
+              TextSpan(text: 'Navigator', style: CustomTextStyle.bold(height: height, rate: 0.5, color: CustomColors.BLACK)),
             ])), // Appbar Title
             context,
             true, // Appbar 번역 버튼 gone
@@ -37,28 +40,26 @@ class _DashboardKoreaState extends State<DashboardKorea> {
         body: Center(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Center(child: cityList(Dummydata().leftCityList, true)),
+              Center(child: cityList(width, height, Dummydata().leftCityList, true)),
               Container(
-                  padding: kIsWeb
-                      ? EdgeInsets.fromLTRB(64.w, 38.h, 64.w, 52.h)
-                      : EdgeInsets.fromLTRB(32.w, 20.h, 32.w, 32.h),
+                padding: EdgeInsets.symmetric(vertical: height*0.07),
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(12.r),
                       child: Image.asset("images/korea_map.png",
                           height: double.infinity,
                           fit: BoxFit.fitHeight))),
-              cityList(Dummydata().rightCityList, false)
+              cityList(width, height, Dummydata().rightCityList, false)
             ],
           ),
         ));
   }
 }
 
-Widget cityList(List<City> entries, bool isVisibleText) {
+Widget cityList(double width, double height, List<City> entries, bool isVisibleText) {
   return SizedBox(
-    width: 255.w,
+    width: width * 0.25,
     height: 600.h,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -67,8 +68,8 @@ Widget cityList(List<City> entries, bool isVisibleText) {
         Visibility(
             visible: isVisibleText,
             child:
-                Text("install_count", style: CustomTextStyle.medium_14_purple)
-                    .tr()),
+                Text("install_count", style: CustomTextStyle.medium(height: height, rate: 0.3, color: CustomColors.PURPLE))
+            .tr()),
         SizedBox(height: kIsWeb ? 8.h : 4.h),
         Center(
           child: ListView.builder(
@@ -89,8 +90,8 @@ Widget cityList(List<City> entries, bool isVisibleText) {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: kIsWeb ? 190.w : 180.w,
-                      height: kIsWeb ? 102.h : 90.w,
+                      width: width * 0.16,
+                      height: height * 0.16,
                       decoration: BoxDecoration(
                           color: CustomColors.PURPLE,
                           borderRadius: BorderRadius.circular(8.r)),
@@ -100,21 +101,17 @@ Widget cityList(List<City> entries, bool isVisibleText) {
                           children: [
                             SizedBox(height: kIsWeb ? 12.h : 6.h),
                             Text(entries[index].cityName,
-                                style: kIsWeb
-                                    ? CustomTextStyle.semibold_20_white
-                                    : CustomTextStyle.semibold_16_white),
+                                style: CustomTextStyle.medium(height: height, rate: 0.3, color: CustomColors.WHITE)),
                             SizedBox(height: kIsWeb ? 8.h : 4.h),
                             Container(
-                              width: kIsWeb ? 153.w : 143.w,
-                              height: kIsWeb ? 44.h : 24.h,
+                              width: width * 0.13,
+                              height: height * 0.08,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                   color: CustomColors.LIGHT_PURPLE,
                                   borderRadius: BorderRadius.circular(8.r)),
                               child: Text(entries[index].count,
-                                  style: kIsWeb
-                                      ? CustomTextStyle.semibold_20_black
-                                      : CustomTextStyle.semibold_16_black),
+                                  style: CustomTextStyle.medium(height: height, rate: 0.3, color: CustomColors.BLACK)),
                             ),
                             SizedBox(height: kIsWeb ? 8.h : 4.h)
                           ]),

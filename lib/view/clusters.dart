@@ -43,9 +43,12 @@ class _ClustersState extends State<Clusters>
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
         appBar: commonAppbar(
-            Text('82-62-ECO Intelli clusters', style: CustomTextStyle.bold_32_black),
+            Text('82-62-ECO Intelli clusters', style: CustomTextStyle.bold(height: height, rate: 0.5, color: CustomColors.BLACK)),
             // Appbar Title
             context,
             false, // Appbar 번역 버튼 gone
@@ -58,37 +61,37 @@ class _ClustersState extends State<Clusters>
               child: Image.asset("images/clusters_map.png",
                   width: double.infinity, height: double.infinity, fit: BoxFit.fitWidth))),
           Positioned(
-              top: 180.h,
-              left: 140.w,
-              child: animatedClusters("images/ic_clusters_1.png", 112)),
+              top: height*0.05,
+              left: width*0.3,
+              child: animatedClusters("images/ic_clusters_1.png", height * 0.15)),
           Positioned(
-              bottom: 110.h,
-              left: 200.w,
-              child: animatedClusters("images/ic_clusters_2.png", 100)),
+              top: height*0.1,
+              left: width*0.08,
+              child: animatedClusters("images/ic_clusters_2.png", height * 0.11)),
           Positioned(
-              bottom: 220.h,
-              left: 550.w,
-              child: animatedClusters("images/ic_clusters_3.png", 82)),
+              top: height*0.14,
+              left: width*0.55,
+              child: animatedClusters("images/ic_clusters_3.png", height * 0.18)),
           Positioned(
-              top: 100.h,
-              left: 330.w,
-              child: animatedClusters("images/ic_clusters_4.png", 82)),
+              top: height*0.3,
+              left: width*0.45,
+              child: animatedClusters("images/ic_clusters_4.png", height * 0.15)),
           Positioned(
-              bottom: 120.h,
-              left: 760.w,
-              child: animatedClusters("images/ic_clusters_5.png", 90)),
+              top: height*0.45,
+              left: width*0.12,
+              child: animatedClusters("images/ic_clusters_5.png", height * 0.15)),
           Positioned(
-              bottom: 170.h,
-              right: 520.w,
-              child: animatedClusters("images/ic_clusters_6.png", 100)),
+              top: height*0.35,
+              left: width*0.3,
+              child: animatedClusters("images/ic_clusters_6.png", height * 0.13)),
           Positioned(
-              top: 350.h,
-              right: 640.w,
-              child: animatedClusters("images/ic_clusters_7.png", 100))
+              top: height*0.4,
+              left: width*0.57,
+              child: animatedClusters("images/ic_clusters_7.png", height * 0.12))
         ]));
   }
 
-  Widget animatedClusters(String imagePath, int size) {
+  Widget animatedClusters(String imagePath, double size) {
     return GestureDetector(
       onTap: () {
         /** 클러스터 클릭하면, 4번째 페이지(가로등) 로 이동 **/
