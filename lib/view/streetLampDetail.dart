@@ -53,7 +53,7 @@ class _StreetLampDetailState extends State<StreetLampDetail> {
                 children: [
                  Graph(),
                   SizedBox(height: 12.h),
-                  eventHistory(height),
+                  eventHistory(height)
                 ],
               ),
             ),
@@ -84,37 +84,121 @@ class _StreetLampDetailState extends State<StreetLampDetail> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8.w),
       decoration: BoxDecoration(
-          color: CustomColors.WHITE, borderRadius: BorderRadius.circular(12.r)),
+        color: CustomColors.WHITE,
+        borderRadius: BorderRadius.circular(12.r),
+      ),
       child: Column(
         children: [
           SizedBox(height: 8.h),
-          Text(tr('eventHistory'), style: CustomTextStyle.semiBold(height: height, rate: 0.32, color: CustomColors.BLACK)),
+          Text(
+            tr('eventHistory'),
+            style: CustomTextStyle.semiBold(
+              height: height,
+              rate: 0.32,
+              color: CustomColors.BLACK,
+            ),
+          ),
           SizedBox(height: 14.h),
-          Row(
+          // 테이블 헤더
+          Table(
+            columnWidths: {
+              0: FlexColumnWidth(1.5), // 첫 번째 열 비율 (날짜)
+              1: FlexColumnWidth(1), // 두 번째 열 비율 (충전)
+              2: FlexColumnWidth(1), // 세 번째 열 비율 (사용)
+            },
             children: [
-              Text(tr('date'), style: CustomTextStyle.regular(height: height, rate: 0.22, color: CustomColors.BLACK)),
-              Text(tr('charge_unit'), style: CustomTextStyle.regular(height: height, rate: 0.22, color: CustomColors.BLACK)),
-              Text(tr('usage_unit'), style: CustomTextStyle.regular(height: height, rate: 0.22, color: CustomColors.BLACK)),
+              TableRow(
+                children: [
+                  Text(
+                    tr('date'),
+                    style: CustomTextStyle.regular(
+                      height: height,
+                      rate: 0.2,
+                      color: CustomColors.BLACK,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    tr('charge_unit'),
+                    style: CustomTextStyle.regular(
+                      height: height,
+                      rate: 0.2,
+                      color: CustomColors.BLACK,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    tr('usage_unit'),
+                    style: CustomTextStyle.regular(
+                      height: height,
+                      rate: 0.2,
+                      color: CustomColors.BLACK,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
             ],
           ),
-          SizedBox(height: 20.h),
+          SizedBox(height: 12.h),
+          // 테이블 데이터
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: entries.length,
             itemBuilder: (BuildContext context, int index) {
-              return Row(
+              return Table(
+                columnWidths: {
+                  0: FlexColumnWidth(1.5),
+                  1: FlexColumnWidth(1),
+                  2: FlexColumnWidth(1),
+                },
                 children: [
-                  Text(entries[index].date,
-                      style: CustomTextStyle.medium(height: height, rate: 0.25, color: CustomColors.BLACK)),
-                  Text(entries[index].charge,
-                      style: CustomTextStyle.medium(height: height, rate: 0.25, color: CustomColors.BLACK)),
-                  Text(entries[index].usage,
-                      style: CustomTextStyle.medium(height: height, rate: 0.25, color: CustomColors.BLACK)),
+                  TableRow(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 4.h),
+                        child: Text(
+                          entries[index].date,
+                          style: CustomTextStyle.medium(
+                            height: height,
+                            rate: 0.22,
+                            color: CustomColors.BLACK,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 4.h),
+                        child: Text(
+                          entries[index].charge,
+                          style: CustomTextStyle.medium(
+                            height: height,
+                            rate: 0.22,
+                            color: CustomColors.BLACK,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 4.h),
+                        child: Text(
+                          entries[index].usage,
+                          style: CustomTextStyle.medium(
+                            height: height,
+                            rate: 0.22,
+                            color: CustomColors.BLACK,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               );
             },
-          )
+          ),
+          SizedBox(height: 4.h)
         ],
       ),
     );

@@ -30,7 +30,7 @@
   "total_co2_savings": "총 Co2 절감량",
   "realtime": "실시간 설비 진단",
   "solar_cell_over": "태양전지 과전압",
-  "solar_cell_low": "S태양전지 저전압",
+  "solar_cell_low": "태양전지 저전압",
   "solar_cell_over_limit": "태양전지 저전압 제한초과",
   "solar_cell_power": "태양전지 발전량",
   "battery_over": "배터리 과전압",
